@@ -118,5 +118,7 @@ function start_capture(){
 
     // 自動再生する
     video.play();
+  }, function(error) {
+    console.log(error);
   });
 }
