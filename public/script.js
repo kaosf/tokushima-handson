@@ -74,6 +74,10 @@ function create_download_link(){
     href: url,
     download: "picture.png"
   });
+  // without jQuery
+  //var a = document.getElementById("download-link");
+  //a.href = url;
+  //a.download = 'picture.png';
 }
 
 /* STEP5 (APPENDIX) */
