@@ -48,9 +48,9 @@ function draw_waku_fancy() {
 
   // 画像ダウンロードが完了すると load イベントが発火するので
   // このタイミングで描画する
-  // (失敗例)
-  // load イベントの発火後ではないタイミングで枠画像を表示しようとする
-  context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
+  img.onload = function() {
+    context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
+  };
 }
 
 /* STEP4 */
