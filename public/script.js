@@ -97,13 +97,13 @@ function start_capture(){
   // カメラからの映像ストリーム取得を要求する。成功すると、
   // 第二引数のコールバック関数が呼ばれる
   navigator.webkitGetUserMedia({video: true}, function(stream) {
-  // 映像ストリームオブジェクトからBlobURLを生成する。
+    // 映像ストリームオブジェクトからBlobURLを生成する。
     var bloburl =  window.URL.createObjectURL(stream);
     // BlobURLが何なのかを確認するため、consoleに表示する
     console.log(bloburl);
 
-  // video要素のsrc属性に生成した BlobURL をセットすると
-  // カメラ映像が表示されるようになる。
+    // video要素のsrc属性に生成した BlobURL をセットすると
+    // カメラ映像が表示されるようになる。
     video.src = bloburl;
   });
 }
