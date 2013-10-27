@@ -25,16 +25,16 @@ $("#waku-button").on("click", draw_waku);
 // 枠線を描く関数
 function draw_waku() {
   // 描画を開始する
-  /* ここにコードを記述 */
+  context.beginPath();
   
   // 枠線の色を黄色に指定
-  /* ここにコードを記述 */
+  context.strokeStyle = "yellow";
 
   // 枠線の太さを 25 pixelにする
-  /* ここにコードを記述 */
+  context.lineWidth = 25;
 
   // 枠線を描く
-  /* ここにコードを記述 */
+  context.strokeRect(0, 0, canvasElem.width, canvasElem.height);
 }
 
 /* STEP3 */
