@@ -12,8 +12,14 @@ $("#snap-button").on("click", snap_picture);
 // スナップ写真を撮る
 function snap_picture() {
   // ビデオのスナップショットをキャンバスに貼る
-  context.drawImage($("video")[0], 0, 0);
-  // context.drawImage(document.querySelector('video'), 0, 0); // without jQuery
+  var video = $("video")[0];
+  //var video = document.querySelector('video'); // without jQuery
+  // WebCamにすると、映像サイズが変わるので、canvasの大きさも
+  // それに合わせて変える
+  canvasElem.width = video.videoWidth;
+  canvasElem.height = video.videoHeight;
+  // context に drawImage するのはサイズを変えた後
+  context.drawImage(video, 0, 0);
 }
 
 
@@ -114,8 +120,6 @@ function start_capture(){
 
 // さらに余力が有る方・・・・
 //
-// 1) 映像からスナップを撮った時に、下が切れていると思います。
-// 　これを直してみて下さい。
 // 2) このコードがFireFoxでも動くようにしてみてください。
 //   ヒントは以下のとおり
 //  - 映像ファイルのフォーマットがmpeg4になっている
