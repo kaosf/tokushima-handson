@@ -12,7 +12,8 @@ $("#snap-button").on("click", snap_picture);
 // スナップ写真を撮る
 function snap_picture() {
   // ビデオのスナップショットをキャンバスに貼る
-  /* ここにコードを記述 */
+  context.drawImage($("video")[0], 0, 0);
+  // context.drawImage(document.querySelector('video'), 0, 0); // without jQuery
 }
 
 
