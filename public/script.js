@@ -24,9 +24,6 @@ $("#waku-button").on("click", draw_waku);
 
 // 枠線を描く関数
 function draw_waku() {
-  // 描画を開始する
-  context.beginPath();
-  
   // 枠線の色を黄色に指定
   context.strokeStyle = "yellow";
 
