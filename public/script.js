@@ -106,24 +106,19 @@ function start_capture(){
     navigator.webkitGetUserMedia;
   // カメラからの映像ストリーム取得を要求する。成功すると、
   // 第二引数のコールバック関数が呼ばれる
-  try {
-    navigator.getUserMedia({video: true}, function(stream) {
-      // 映像ストリームオブジェクトからBlobURLを生成する。
-      var bloburl =  window.URL.createObjectURL(stream);
-      // BlobURLが何なのかを確認するため、consoleに表示する
-      console.log(bloburl);
+  navigator.getUserMedia({video: true}, function(stream) {
+    // 映像ストリームオブジェクトからBlobURLを生成する。
+    var bloburl =  window.URL.createObjectURL(stream);
+    // BlobURLが何なのかを確認するため、consoleに表示する
+    console.log(bloburl);
 
-      // video要素のsrc属性に生成した BlobURL をセットすると
-      // カメラ映像が表示されるようになる。
-      video.src = bloburl;
+    // video要素のsrc属性に生成した BlobURL をセットすると
+    // カメラ映像が表示されるようになる。
+    video.src = bloburl;
 
-      // 自動再生する
-      video.play();
-    });
-    // ※第 3 引数無し
-  } catch (e) {
-    alert(e);
-    // NS_ERROR_XPC_NOT_ENOUGH_ARGS が確認出来る
-    // 参考: https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia
-  }
+    // 自動再生する
+    video.play();
+  }, function(error) {
+    console.log(error);
+  });
 }
