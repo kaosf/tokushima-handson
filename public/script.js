@@ -65,7 +65,8 @@ $("#download").on("click", create_download_link);
 // ダウンロード出来るようになる
 function create_download_link(){
   // キャンバス画像を DataURLに変換
-  /* ここにコードを記述 */
+  var url = canvasElem.toDataURL();
+  console.log(url);
 
   // アンカー要素のhref属性にDataURLを指定し、
   // download属性にファイル名を指定する
