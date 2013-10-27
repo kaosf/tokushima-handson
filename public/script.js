@@ -70,8 +70,10 @@ function create_download_link(){
 
   // アンカー要素のhref属性にDataURLを指定し、
   // download属性にファイル名を指定する
-  /* ここにコードを記述 */
-
+  $("#download-link").attr({
+    href: url,
+    download: "picture.png"
+  });
 }
 
 /* STEP5 (APPENDIX) */
