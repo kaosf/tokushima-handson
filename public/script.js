@@ -43,12 +43,14 @@ $("#fancy-waku-button").on("click", draw_waku_fancy);
 function draw_waku_fancy() {
   // Imageオブジェクトを作り、srcに画像ファイルを指定する
   // （画像のダウンロードが始まる）
-  /* ここにコードを記述 */
+  var img = new Image();
+  img.src = "./files/img/frame_gold.png";
 
   // 画像ダウンロードが完了すると load イベントが発火するので
   // このタイミングで描画する
-  /* ここにコードを記述 */
-
+  img.onload = function() {
+    context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
+  };
 }
 
 /* STEP4 */
