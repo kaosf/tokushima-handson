@@ -100,9 +100,13 @@ $("#webcam").on("click", start_capture);
 function start_capture(){
   var video = $('video')[0]; // video要素の取得
 
+  // getUserMedia の crossブラウザ対応
+  navigator.getUserMedia = navigator.getUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.webkitGetUserMedia;
   // カメラからの映像ストリーム取得を要求する。成功すると、
   // 第二引数のコールバック関数が呼ばれる
-  navigator.webkitGetUserMedia({video: true}, function(stream) {
+  navigator.getUserMedia({video: true}, function(stream) {
     // 映像ストリームオブジェクトからBlobURLを生成する。
     var bloburl =  window.URL.createObjectURL(stream);
     // BlobURLが何なのかを確認するため、consoleに表示する
